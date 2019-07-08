@@ -1,4 +1,43 @@
 ---
-layout: home
-author_profile: true
+title: "Günhan Oral"
+layout: splash
+# permalink: /splash-page/
+date: 2019-06-24T20:13:41-04:00
+header:
+  overlay_color: "#000"
+  overlay_filter: "0.25"
+  overlay_image: /assets/images/splash_small.jpg
+  actions:
+    - label: "Learn More"
+      url: "/about/"
+excerpt: Jack of some trades
+intro: 
+  - excerpt: My personal website. I write about network engineering, python and network automation. Some of them might be in English. Some of them might be about myself. Feel free to get in touch via comments or emails.
+
+feature_row:
+  - image_path: assets/images/neteng_sm.jpg
+    alt: "Network Engineering"
+    title: "Network Engineering"
+    excerpt: "Posts about network projects, network engineering, labs and protocols."
+    url: #testurl
+  - image_path: /assets/images/netauto_sm.jpg
+    alt: "Network Automation"
+    title: "Network Automation"
+    excerpt: "Network automation practices, standarts, labs with focus on Python and Ansible"
+  - image_path: /assets/images/python_sm.jpg
+    title: "Python Programming"
+    alt: "Python Programming"
+    excerpt: "Some Python programming tips and tricks. Including basic lessons and example codes."
 ---
+
+{% include feature_row id="intro" type="center" %}
+
+{% include feature_row %}
+
+<h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h3>
+
+{% for post in paginator.posts %}
+  {% include archive-single.html %}
+{% endfor %}
+
+{% include paginator.html %}
