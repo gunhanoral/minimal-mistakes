@@ -1,6 +1,6 @@
 ---
 title:  "GNS3 VM Kurulumu"
-excerpt: "GNS3 VM kurarken dikkat edilecek bazı hususlar. Ben uğraştım, siz uğraşmayın. "
+excerpt: "GNS3 VM kurarken dikkat edilecek bazı hususlar."
 date:   2017-08-23 19:33:32
 categories: network
 tags: ['gns3', 'gns3 vm', 'VirtualBox']

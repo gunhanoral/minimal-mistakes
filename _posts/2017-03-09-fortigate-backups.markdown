@@ -11,6 +11,7 @@ tags:
   - backup
 image: /assets/article_images/2017-03-09-fortigate-backups/bankvault.jpg
 image2: /assets/article_images/2017-03-09-fortigate-backups/bankvault_mob.jpg
+published: false
 ---
 
 Fortigate'in 5.2.x sürümünde automatic backup özelliği mevcut değil. [Burada][networktools] yer alan kodu temel alan aşağıdaki script'i kullanabilirsiniz.

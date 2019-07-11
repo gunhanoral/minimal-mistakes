@@ -24,7 +24,7 @@ url                      : # "http://www.gunhanoral.com" # the base hostname & p
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : "/assets/images/gologo300x300.jpg" # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-logo                     : "/assets/images/gologo88x88.jpg" # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
+logo                     : # "/assets/images/gologo88x88.jpg" #path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
@@ -110,7 +110,7 @@ author:
   avatar           : "/assets/images/gunhan.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "Network Engineer"
   location         : "Istanbul, Turkey"
-  email            : # "contact@gunhanoral.com"
+  email            : "contact@gunhanoral.com"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
@@ -297,7 +297,7 @@ defaults:
       layout: single
       author_profile: true
       read_time: true
-      comments: # true
+      comments: true
       share: true
       related: true
       toc: true

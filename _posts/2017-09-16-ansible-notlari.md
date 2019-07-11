@@ -1,6 +1,6 @@
 ---
 title:  "Ansible Notları"
-excerpt: "Birkaç gün önce test amaçlı Ansible kurulumu yaptım ve çeşitli denemeler yapmaya başladım. Deneyimlerim ile ilgili notları burada tutuyorum."
+excerpt: "Ansible ile ilgili notlar"
 date:   2017-09-16 17:42:38
 categories: network
 tags: ['network', 'python', 'ansible', 'network automation', 'network orchestration', 'featured']
