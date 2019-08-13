@@ -5,7 +5,7 @@ permalink: /about/
 header:
   overlay_color: "#000"
   overlay_filter: "0.25"
-  overlay_image: /assets/images/angry12.jpg
+  overlay_image: /assets/images/bttf.jpg
 excerpt: Jack of some trades
 date: 2019-07-11T15:40:00+03:00
 toc: yes
@@ -26,9 +26,13 @@ Network engineer, automation enthusiast, Pythonista
 ## Network Engineering
 * **DDoS Mitigation using BGP Flowspec**
 
+* **RTBH**
+
 * **Enabling IPv6**
 
-* **GoBGP route-server implementation**
+* **Datacenter Migration**
+
+* **Peerings**
 
 ## Network Automation
 * **CI/CD Pipeline for Radius configurations**
@@ -55,30 +59,28 @@ Network engineer, automation enthusiast, Pythonista
 ## TurkNet İletişim Hizmetleri
 ### Network Engineer
 _Feb 2017 – Sep 2019_
-+ I automated some of the repetitive tasks such as generating configuration from templates, some basic auto-remediation, parallel config changes, etc.
-+ I was able to show my co-workers that network automation is possible. And that's the direction we must go to.
-+ Telemetry is the keystone for better understanding of the network. So I used some tools to achieve that understanding and was able to optimize our network with this new information.
 
 Responsibilities:
 - Core network, access network and network security analysis, design and operations.
-- Researching new technologies and solutions to improve our network.
-- Daily operations of network and security platforms.
-- Installation and management of wireless/hotspot networks.
-- Operations on UNIX based systems such as Radius, Tacacs, Nfsen.
+- Researching new technologies and solutions to improve the underlying infrastructure.
+- Daily operations of network and network security platforms.
+- Operations on Linux based systems such as Radius, Tacacs, Nfsen.
 - Providing high level support services for network, security, hotspot, wi-fi systems.
 - Writing HLD and LLD documents.
 
 Had experience on:
 - Various products from vendors such as Cisco, Juniper, Fortinet, Ubiquiti, Arbor, Arcsight, ZTE, Huawei.
-- UNIX and Windows systems, mostly Linux.
+- UNIX and Windows systems, mostly Linux, some freeBSD.
 - Scripting languages such as Python, Expect, Bash, Tcl.
-- Ansible, a network automation and orchestration tool.
+- Network automation platforms such as Ansible and Nornir.
 - Analyzing tools such as Tcpdump, Wireshark, Nfdump.
+- Some other tools including exabgp, gobgp, scapy, influxdb, grafana.
 - Protocols such as IP, BGP, MPLS, OSPF, IS-IS, IPSEC, DNS, DHCP, NAT, VLAN, SSL, TCP/IP
 - Concepts such as Network Security, WAN, LAN, Service Provider, Routing, Switching, QoS, VRFs, VPN, AToM, L2VPN, L3VPN, L2TP
 
 ### Business Services Senior Escalation Engineer
 _Jun 2016 – Feb 2017_
+
 Responsibilities:
 - Supervising 1st and 2nd level support specialists and escalation engineers and providing higher level support
 - In-team training and documentation
@@ -95,6 +97,7 @@ Had experience on:
 
 ### Business Services Escalation Engineer
 _Sep 2014 – Jun 2016_
+
 Responsibilities:
 - Providing 2nd level support services.
 - In-team training and documentation.

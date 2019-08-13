@@ -1,6 +1,7 @@
 ---
 title: "Günhan Oral"
 layout: splash
+entries_layout: list
 # permalink: /splash-page/
 date: 2019-06-24T20:13:41-04:00
 header:
@@ -12,21 +13,21 @@ header:
       url: "/about/"
 excerpt: Network engineer
 intro: 
-  - excerpt: Network engineering, network automation, Python related projects, articles and guides.
+  - excerpt: Network engineering, network automation, Python projects, articles and guides.
 
 feature_row:
   - image_path: assets/images/neteng_sm.jpg
     alt: "Network Engineering"
     title: "Network Engineering"
-    excerpt: "Network planning, design and implementation. LAN - WAN, firewalls, routers, switches, hotspots, radio-links, DDoS mitigation & more. Contact for further information."
+    # excerpt: "Network planning, design and implementation. LAN - WAN, firewalls, routers, switches, hotspots, radio-links, DDoS mitigation & more. Contact for further information."
   - image_path: /assets/images/netauto_sm.jpg
     alt: "Network Automation"
     title: "Network Automation"
-    excerpt: "Network automation best practices, industry standarts, courses including labs with focus on Python, Ansible and other automation solutions. Contact for further information."
+    # excerpt: "Network automation best practices, industry standarts, courses including labs with focus on Python, Ansible and other automation solutions. Contact for further information."
   - image_path: /assets/images/python_sm.jpg
     title: "Python Programming"
     alt: "Python Programming"
-    excerpt: "Python programming courses, best practices and custom made solutions. Contact for further information."
+    # excerpt: "Python programming courses, best practices and custom made solutions. Contact for further information."
 ---
 
 {% include feature_row id="intro" type="center" %}
@@ -36,7 +37,9 @@ feature_row:
 <h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h3>
 
 {% for post in paginator.posts %}
-  {% include archive-single.html %}
-{% endfor %}
+  {% include archive-single.html type="center" %} 
+{% endfor %} 
 
 {% include paginator.html %}
+
+<a href="#page-title" class="back-to-top">{{ site.data.ui-text[site.locale].back_to_top | default: 'Back to Top' }} &uarr;</a>
