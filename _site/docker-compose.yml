@@ -1,0 +1,14 @@
+version: '3'
+services:
+  website:
+    image: 'jekyll/builder:3.8'
+    command: bash -c "bundle install && jekyll serve"
+    ports:
+      - '80:4000'
+    volumes:
+      - './:/srv/jekyll'
+    restart: 'no'
+    #tty: true
+    environment:
+      - http_proxy=http://135.245.192.7:8000
+      - https_proxy=https://135.245.192.7:8000

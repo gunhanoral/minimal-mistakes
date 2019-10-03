@@ -1,0 +1,976 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.16.4 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Tcpdump hakkında | Gunhan Oral</title>
+<meta name="description" content="Tcpdump kullanarak paket yakalama, inceleme hakkında">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Gunhan Oral">
+<meta property="og:title" content="Tcpdump hakkında">
+<meta property="og:url" content="/network/tcpdump/">
+
+
+  <meta property="og:description" content="Tcpdump kullanarak paket yakalama, inceleme hakkında">
+
+
+
+  <meta property="og:image" content="/assets/images/2017-06-15-tcpdump.png">
+
+
+
+  <meta name="twitter:site" content="@_gunhanoral">
+  <meta name="twitter:title" content="Tcpdump hakkında">
+  <meta name="twitter:description" content="Tcpdump kullanarak paket yakalama, inceleme hakkında">
+  <meta name="twitter:url" content="/network/tcpdump/">
+
+  
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="/assets/images/2017-06-15-tcpdump.png">
+  
+
+  
+
+
+
+  <meta property="article:published_time" content="2017-06-15T23:06:06+03:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="/network/tcpdump/">
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "url": null,
+      "logo": "/assets/images/gologo300x300.jpg"
+    }
+  </script>
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Gunhan Oral",
+      "url": null,
+      "sameAs": null
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Gunhan Oral Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE ]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">Gunhan Oral</a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/" >Home</a>
+            </li><li class="masthead__menu-item">
+              <a href="/year-archive/" >Posts</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/" >About</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+<div class="page__hero--overlay"
+  style=" background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/assets/images/2017-06-15-tcpdump.png');"
+>
+  
+    <div class="wrapper">
+      <h1 id="page-title" class="page__title" itemprop="headline">
+        
+          Tcpdump hakkında
+
+        
+      </h1>
+      
+        <p class="page__lead">Tcpdump kullanarak paket yakalama, inceleme hakkında
+</p>
+      
+      
+        <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  7 minute read
+</p>
+      
+      
+      
+    </div>
+  
+  
+</div>
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+
+      
+        <img src="/assets/images/gunhan.jpg" alt="Gunhan Oral" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Gunhan Oral</h3>
+    
+    
+      <p class="author__bio" itemprop="description">
+        Network Engineer
+      </p>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Istanbul, Turkey</span>
+        </li>
+      
+
+      
+        
+          
+        
+          
+        
+          
+            <li><a href="https://twitter.com/_gunhanoral" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/gunhanoral" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+          
+        
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/gunhanoral" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> LinkedIn</a></li>
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:contact@gunhanoral.com">
+            <meta itemprop="email" content="contact@gunhanoral.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Tcpdump hakkında">
+    <meta itemprop="description" content="Tcpdump kullanarak paket yakalama, inceleme hakkında">
+    <meta itemprop="datePublished" content="June 15, 2017">
+    
+
+    <div class="page__inner-wrap">
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Table of Contents</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#tcpdump">Tcpdump</a>
+    <ul>
+      <li><a href="#örnekler">Örnekler</a></li>
+      <li><a href="#kullanımı">Kullanımı</a>
+        <ul>
+          <li><a href="#uygun-dil">Uygun dil</a></li>
+        </ul>
+      </li>
+      <li><a href="#derin-mevzular">Derin mevzular</a>
+     -  <a href="#ne-yapmalı-ne-etmeli-bir-oyunbazlık-bir-şeytanlık">Ne yapmalı, ne etmeli, bir oyunbazlık bir şeytanlık:</a></li>
+    </ul>
+  </li>
+</ul>
+            </nav>
+          </aside>
+        
+        <h1 id="tcpdump">Tcpdump</h1>
+
+<p>Bana kalırsa bir networkçü için olmazsa olmaz şeylerden birisi Wireshark, diğeri de tcpdump’tır. İletişim için kullanılan mesajlaşmaları en ham haliyle görebileceğiniz ve anlamlandırabileceğiniz, yer yer protokol anlamak için yer yer de troubleshooting için kullanmak isteyeceğiniz tcpdump’tan bahsediyorum.</p>
+
+<p>Sadece network mühendisleri değil, ses ekiplerinden sistem ekiplerine herkes çok temel kontroller için bile kullanabiliyor bu programı. Örneğin ulaşamadığınız bir porta verilen ICMP yanıtı ne? Ping paketleri karşı uca ulaşıyor mu yoksa yolda bir yerde mi kayboluyor? Gönderilen mesajların boyutu ne? SIP contact adresi yanlış mı girilmiş?</p>
+
+<p>Aradığınızı muhtemelen tcpdump ile bulacaksınız. : )</p>
+
+<h2 id="örnekler">Örnekler</h2>
+
+<p>Standart bir çıktı:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@ip-172-31-22-143:~# tcpdump -c 10
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
+listening on eth0, link-type EN10MB (Ethernet), capture size 262144 bytes
+11:19:19.723616 IP ip-172-31-22-143.eu-central-1.compute.internal.ssh &gt; x.x.x.x.dsl.static.turk.net.10816: Flags [P.], seq 320:384, ack 1, win 284, length 64
+11:19:19.723816 IP ip-172-31-22-143.eu-central-1.compute.internal.44612 &gt; ip-172-31-0-2.eu-central-1.compute.internal.domain: 1049+ PTR? x.x.x.x.in-addr.arpa. (43)
+...
+</code></pre></div></div>
+
+<p>Sadece ICMP paketleri:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@ip-172-31-22-143:~# tcpdump icmp
+</code></pre></div></div>
+<p>Bu cihaza ya da bu cihazdan dışarıya bir yere ping atmayı deneyin bakalım. Tcpdump’ı CTRL + C ile sonlandırabilirsiniz.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
+listening on eth0, link-type EN10MB (Ethernet), capture size 262144 bytes
+
+11:24:28.449759 IP x.x.x.x.dsl.static.turk.net &gt; ip-172-31-22-143.eu-central-1.compute.internal: ICMP echo request, id 1, seq 7, length 40
+11:24:28.449784 IP ip-172-31-22-143.eu-central-1.compute.internal &gt; x.x.x.x.dsl.static.turk.net: ICMP echo reply, id 1, seq 7, length 40
+</code></pre></div></div>
+
+<p>Sadece 8.8.8.8 ile yapılan iletişim:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@ip-172-31-22-143:~# tcpdump host 8.8.8.8
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
+listening on eth0, link-type EN10MB (Ethernet), capture size 262144 bytes
+
+11:27:26.104170 IP ip-172-31-22-143.eu-central-1.compute.internal &gt; google-public-dns-a.google.com: ICMP echo request, id 9008, seq 1, length 64
+11:27:26.126807 IP google-public-dns-a.google.com &gt; ip-172-31-22-143.eu-central-1.compute.internal: ICMP echo reply, id 9008, seq 1, length 64
+</code></pre></div></div>
+
+<p>Biraz daha toparlanmış bir çıktı istiyorsanız:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@ip-172-31-22-143:~# tcpdump -ttttnnvv icmp
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tcpdump: listening on eth0, link-type EN10MB (Ethernet), capture size 262144 bytes
+2017-05-01 11:51:54.949377 IP (tos 0x0, ttl 119, id 21024, offset 0, flags [none], proto ICMP (1), length 60)
+    x.x.x.x &gt; 172.31.22.143: ICMP echo request, id 1, seq 19, length 40
+2017-05-01 11:51:54.949404 IP (tos 0x0, ttl 64, id 31385, offset 0, flags [none], proto ICMP (1), length 60)
+    172.31.22.143 &gt; x.x.x.x: ICMP echo reply, id 1, seq 19, length 40
+</code></pre></div></div>
+
+<h2 id="kullanımı">Kullanımı</h2>
+
+<ul>
+  <li><code class="highlighter-rouge">-t veya -tttt</code> : Paketlerin zaman bilgisini okunabilir hale getiriyor. t sayısı arttıkça daha okunaklı hale geliyor.</li>
+  <li><code class="highlighter-rouge">-n ve -nn</code> : n hostname’leri çözmemeyi sağlarken nn hostname’leri ve portları çözmeyi engelliyor.</li>
+  <li><code class="highlighter-rouge">-v, -vv, -vvv</code> : Paket detay bilgilerini göstermeyi sağlarken</li>
+</ul>
+
+<p>Belli başlı diğer seçenekler:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">-i any</code> : Tüm interface’leri dinle.</li>
+  <li><code class="highlighter-rouge">-i eth0</code> : Sadece eth0 interface’ini dinle.</li>
+  <li><code class="highlighter-rouge">-n</code> : Hostname’leri çözümleme.</li>
+  <li><code class="highlighter-rouge">-nn</code> : Hostname’leri ya da port isimlerini çözümleme.</li>
+  <li><code class="highlighter-rouge">-t</code> : Bu zaman damgalarını insan okuyacak!</li>
+  <li><code class="highlighter-rouge">-tttt</code> : Bu zaman damgalarını gerçekten insan okuyacak, azıcık insaf. :(</li>
+  <li><code class="highlighter-rouge">-X</code> : Paket içeriğini hem hexadecimal hem den ascii olarak göster.</li>
+  <li><code class="highlighter-rouge">-XX</code> : Paket içeriğini hem hexadecimal hem den ascii olarak gösterirken ethernet header’larını da ekle.</li>
+  <li><code class="highlighter-rouge">-c</code> : Belirtilen sayıda paketten sonra capture’ı durdur.</li>
+  <li><code class="highlighter-rouge">-e</code> : Ethernet headerlarını da çıktıya ekle.</li>
+  <li><code class="highlighter-rouge">-w</code> : Çıktıları belirtilen dosya ismiyle kaydetmeye yarıyor. En çok kullanılan seçenek belki de; çıktıları -w ile .pcap olarak yazdırıp Wireshark ile incelemek.</li>
+</ul>
+
+<p>Tabi bunlar yeterli değil. Yukarıdaki argümanlar çoğunlukla çıktının nasıl olacağını belirliyor. Önemli olan nereyi, nasıl dinleyeceğimiz. Hangi interface’e hangi ip:port’tan gelen ne çeşit istekleri incelemek istiyorsak bunları <em>uygun bir dille</em> belirtmek gerek.</p>
+
+<h3 id="uygun-dil">Uygun dil</h3>
+
+<p>Tcpdump syntax’i <a href="https://wiki.wireshark.org/CaptureFilters">Wireshark’ın capture filter’ı</a> ile aynı seçeneklere sahiptir.</p>
+
+<ul>
+  <li>Host belli bir ip’yi ya da domain’i temsil eder. Örn: <code class="highlighter-rouge">tcpdump host 192.168.1.1</code> ya da <code class="highlighter-rouge">tcpdump host gunhanoral.com</code></li>
+  <li>Net network’ün kısaltmasıdır. Örn: <code class="highlighter-rouge">tcpdump net 192.168.0.0/24</code> ya da <code class="highlighter-rouge">tcpdump net 192.168.0.0 mask 255.255.255.0</code></li>
+  <li>Port parametresiyle port belirtilebilir. Çok şaşıracaksınız, <code class="highlighter-rouge">tcpdump port 80</code> komutu 80 portunu kullanan trafiği gösterir.
+    <ul>
+      <li>libpcap belirli bir versiyonun üzerindeyse portrange de çalışacaktır: <code class="highlighter-rouge">tcpdump portrange 100-200</code></li>
+    </ul>
+  </li>
+  <li>Src ve dst sırasıyla kaynak ve hedef noktaların belirlenmesinde yardımcı olur. Örn: <code class="highlighter-rouge">tcpdump src net 192.168.1.0/24</code></li>
+  <li>Protokol ismi kullanmanız o protokole ait paketlerin filtrelenmesini sağlar. <code class="highlighter-rouge">tcpdump arp</code></li>
+  <li>En güzeli de tüm bu parametreleri and, or, not gibi boolean mantığına uygun bir biçimde birlikte kullanabilmemiz!
+    <ul>
+      <li>tcpdump not broadcast and not multicast</li>
+      <li>tcpdump port not 53 and not arp</li>
+      <li>tcpdump host 192.168.1.1 or host 192.168.1.3</li>
+      <li>tcpdump ‘host gunhanoral.com and not (port 80 or port 25)’</li>
+      <li>tcpdump ‘src net 192.168.0.0/16 and dst net (10.0.0.0/8 or 172.16.0.0/16)’</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Bu dili kullanarak bir uygulama yapalım. Son dönemde ortalığı kasıp kavuran Wannacry bildiğiniz üzere SMB portu (139) üzerinden yayılıyordu. Gelin sistemimize bu porttan gelen bir şey var mı bakalım.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tcpdump -ttttnnvv port 139
+</code></pre></div></div>
+
+<p>Yeterli bir süre beklememe rağmen sonuç alamadım. Ben de bu porta telnet olmaya karar verdim:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tcpdump: listening on eth0, link-type EN10MB (Ethernet), capture size 262144 bytes
+2017-06-15 18:23:29.733650 IP (tos 0x0, ttl 127, id 19970, offset 0, flags [DF], proto TCP (6), length 52)
+    x.x.x.x.58114 &gt; y.y.y.y.139: Flags [S], cksum 0x65c2 (correct), seq 2540976548, win 8192, options [mss 1460,nop,wscale 8,nop,nop,sackOK], length 0
+2017-06-15 18:23:29.733718 IP (tos 0x0, ttl 64, id 49439, offset 0, flags [DF], proto TCP (6), length 40)
+    y.y.y.y.139 &gt; x.x.x.x.58114: Flags [R.], cksum 0xc681 (correct), seq 0, ack 2540976549, win 0, length 0
+2017-06-15 18:23:30.234072 IP (tos 0x0, ttl 127, id 19972, offset 0, flags [DF], proto TCP (6), length 52)
+    x.x.x.x.58114 &gt; y.y.y.y.139: Flags [S], cksum 0x65c2 (correct), seq 2540976548, win 8192, options [mss 1460,nop,wscale 8,nop,nop,sackOK], length 0
+2017-06-15 18:23:30.234227 IP (tos 0x0, ttl 64, id 49467, offset 0, flags [DF], proto TCP (6), length 40)
+    y.y.y.y.139 &gt; x.x.x.x.58114: Flags [R.], cksum 0xc681 (correct), seq 0, ack 1, win 0, length 0
+2017-06-15 18:23:30.734781 IP (tos 0x0, ttl 127, id 19974, offset 0, flags [DF], proto TCP (6), length 48)
+    x.x.x.x.58114 &gt; y.y.y.y.139: Flags [S], cksum 0x79d1 (correct), seq 2540976548, win 8192, options [mss 1460,nop,nop,sackOK], length 0
+2017-06-15 18:23:30.734823 IP (tos 0x0, ttl 64, id 49483, offset 0, flags [DF], proto TCP (6), length 40)
+    y.y.y.y.139 &gt; x.x.x.x.58114: Flags [R.], cksum 0xc681 (correct), seq 0, ack 1, win 0, length 0
+</code></pre></div></div>
+
+<p>Görüldüğü üzere x.x.x.x ip’li bilgisayarımdan y.y.y.y ip’si 139 nolu porta bağlanmaya çalıştım ama yapılan üç denemede de TCP SYN isteğime RST cevabı geldi.</p>
+
+<h2 id="derin-mevzular">Derin mevzular</h2>
+
+<p>Kendimize rehber olarak <a href="http://www.tcpdump.org/manpages/tcpdump.1.html">tcpdump manpage</a> alalım ve SYN paketlerini filtreleyelim. SYN bayrağının havada olduğu TCP paketlerine bakacak olursak 13. oktetin değerinin 2 olmasını bekleriz. Zaten bu beklentimiz sonuç da verecektir:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># tcpdump -ttttnnvv port 139 and tcp[13] == 2
+tcpdump: listening on eth0, link-type EN10MB (Ethernet), capture size 262144 bytes
+2017-06-15 18:38:54.743018 IP (tos 0x0, ttl 127, id 22877, offset 0, flags [DF], proto TCP (6), length 52)
+    x.x.x.x.58238 &gt; y.y.y.y.139: Flags [S], cksum 0x8972 (correct), seq 1266246003, win 8192, options [mss 1460,nop,wscale 8,nop,nop,sackOK], length 0
+2017-06-15 18:38:55.243962 IP (tos 0x0, ttl 127, id 22879, offset 0, flags [DF], proto TCP (6), length 52)
+    x.x.x.x.58238 &gt; y.y.y.y.139: Flags [S], cksum 0x8972 (correct), seq 1266246003, win 8192, options [mss 1460,nop,wscale 8,nop,nop,sackOK], length 0
+2017-06-15 18:38:55.744739 IP (tos 0x0, ttl 127, id 22881, offset 0, flags [DF], proto TCP (6), length 48)
+    x.x.x.x.58238 &gt; y.y.y.y.139: Flags [S], cksum 0x9d81 (correct), seq 1266246003, win 8192, options [mss 1460,nop,nop,sackOK], length 0
+</code></pre></div></div>
+
+<p>Peki neden? Alın teri değil, copy paste:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0                            15                              31
+-----------------------------------------------------------------
+|          source port          |       destination port        |
+-----------------------------------------------------------------
+|                        sequence number                        |
+-----------------------------------------------------------------
+|                     acknowledgment number                     |
+-----------------------------------------------------------------
+|  HL   | rsvd  |C|E|U|A|P|R|S|F|        window size            |
+-----------------------------------------------------------------
+|         TCP checksum          |       urgent pointer          |
+-----------------------------------------------------------------
+</code></pre></div></div>
+<p>Her bir satır 32 bit, yani 4 oktet. TCP flaglerimiz 4. satırda. Birlikte sayalım:</p>
+<ol>
+  <li>İlk satır 0’ıncı ve 3’üncü oktet aralığını gösteriyor.</li>
+  <li>İkinci satırımız 4-7 arası</li>
+  <li>8-11 arası</li>
+  <li>
+    <ol>
+      <li>oktet offset ve reserved bitler. 13. oktet… aradığımız bayraklar.</li>
+    </ol>
+  </li>
+</ol>
+
+<p>SYN flag’i (sağdan sayarsak) kaçıncı bitinde peki bu oktet’in? İkinci sırasında. Sadece SYN’in aktif olduğu flag bit şeklinde nasıl yazılır? 00000010. Bu da eşittir 2.
+Yani sadece RST flag’i havada olacak olsa beklentimiz ne olurdu? 3 mü? Hayır. 00000100 = 4.
+ACK-SYN paketlerini nasıl buluruz? 13. oktet değeri 00010010 = 16 + 2 = 18.</p>
+
+<p>Deneyelim:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># tcpdump -ttttnnvv tcp[13] == 18
+</code></pre></div></div>
+
+<p>Aldığımız yanıt:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>2017-06-15 18:51:18.003595 IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 52)
+    y.y.y.y.22 &gt; x.x.x.x.58371: Flags [S.], cksum 0x34ce (incorrect -&gt; 0x1b1c), seq 2640079490, ack 1360160, win 29200, options [mss 1460,nop,nop,sackOK,nop,wscale 7], length 0
+</code></pre></div></div>
+<p>Not: Flags [S.] aslen S ve A flaglerini temsil ediyor. SYN + ACK yani. <a href="http://article.gmane.org/gmane.network.tcpdump.devel/6383">Kaynak</a></p>
+
+<p>Peki yanında ACK olsun olmasın ben herhangi bir SYN paketini yakalamak istiyorum. Yukarıdaki filtreler bu konuda bize yardımcı olmayacaktır zira bu filtreler spesifik olarak ilk örnekte sadece S bitinin 1 olduğu; ikinci örnekte de sadece S ve A bitlerinin 1 olduğu durumları arayacak şekilde dizayn edilmiştir.</p>
+
+<h4 id="ne-yapmalı-ne-etmeli-bir-oyunbazlık-bir-şeytanlık">Ne yapmalı, ne etmeli, bir oyunbazlık bir şeytanlık:</h4>
+
+<p>SYN biti hangisiydi? 2.bit. Yani biz herhangi bir flag değerini 00000010 ile boolean mantık olarak AND’lersek sonucu 00000010 veren her flag değerinin SYN biti aktiftir.</p>
+
+<p>Deneyelim:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>01010101	01000010	11111111
+00000010	00000010	00000010
+--------	--------	--------
+00000000	00000010	00000010
+</code></pre></div></div>
+<p>Sanki doğru yoldayız. AND işlemini &amp; olarak yazmalıyız. Ancak bash bu özel karakteri background için kullanacaktır, o yüzden tırnak içine almalıyız.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># tcpdump -ttttnnvv 'tcp[13] &amp; 2 == 2'
+tcpdump: listening on eth0, link-type EN10MB (Ethernet), capture size 262144 bytes
+2017-06-15 19:35:31.874196 IP (tos 0x0, ttl 127, id 5650, offset 0, flags [DF], proto TCP (6), length 52)
+    x.x.x.x.58897 &gt; y.y.y.y.22: Flags [S], cksum 0x9526 (correct), seq 3756179255, win 8192, options [mss 1460,nop,wscale 8,nop,nop,sackOK], length 0
+2017-06-15 19:35:31.874257 IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 52)
+    y.y.y.y.22 &gt; x.x.x.x.58897: Flags [S.], cksum 0x34ce (incorrect -&gt; 0x2fb9), seq 2075498391, ack 3756179256, win 29200, options [mss 1460,nop,nop,sackOK,nop,wscale 7], length 0
+</code></pre></div></div>
+
+<p>Tabi bu işlemler sadece TCP’ye özel değil. Bir çok farklı işlem yapılabilir:</p>
+
+<ul>
+  <li><a href="https://www.ietf.org/rfc/rfc3514.txt">Evil Bit</a>‘i set olanlar:  <code class="highlighter-rouge">tcpdump 'ip[6] &amp; 128 != 0' </code></li>
+  <li>HTTP GET: <code class="highlighter-rouge">tcpdump 'tcp[32:4] = 0x47455420'</code></li>
+  <li>TTL’i 10’dan az olanlar: <code class="highlighter-rouge">tcpdump 'ip[8] &lt; 10'</code></li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#data" class="page__taxonomy-item" rel="tag">data</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#ethernet" class="page__taxonomy-item" rel="tag">ethernet</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#featured" class="page__taxonomy-item" rel="tag">featured</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#frame" class="page__taxonomy-item" rel="tag">frame</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#ip" class="page__taxonomy-item" rel="tag">ip</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#protocols" class="page__taxonomy-item" rel="tag">Protocols</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#wireshark" class="page__taxonomy-item" rel="tag">wireshark</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#network" class="page__taxonomy-item" rel="tag">network</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2017-06-15T23:06:06+03:00">June 15, 2017</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?via=_gunhanoral&text=Tcpdump+hakk%C4%B1nda%20%2Fnetwork%2Ftcpdump%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=%2Fnetwork%2Ftcpdump%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=%2Fnetwork%2Ftcpdump%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/network/udp-nedir/" class="pagination--pager" title="UDP nedir ne değildir?
+">Previous</a>
+    
+    
+      <a href="/python/async-port-check/" class="pagination--pager" title="Python Asyncio port scanner
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+      <div class="page__comments">
+  
+  
+      <h4 class="page__comments-title">Leave a comment</h4>
+      <section id="disqus_thread"></section>
+    
+</div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src=
+          
+            "/assets/images/gologo300x300.jpg"
+          
+          alt="">
+      </div>
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/python/netmiko/" rel="permalink">Netmiko
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Kirk Byers’ın Python için yazdığı netmiko modülü hakkında kısa bir yazı
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src=
+          
+            "/assets/images/gologo300x300.jpg"
+          
+          alt="">
+      </div>
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/python/jinja2-templating/" rel="permalink">Jinja2 Şablonları
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  5 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Jinja2 ile çeşitli şablonlar oluşturup bunları network configleri için kullanacağız
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src=
+          
+            "/assets/images/gologo300x300.jpg"
+          
+          alt="">
+      </div>
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/network/ansible-dynamic-inventory/" rel="permalink">Ansible dinamik envanter
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  2 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Ansible’da özelleştirilmiş dinamik envanter nasıl hazırlanır?
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src=
+          
+            "/assets/images/gologo300x300.jpg"
+          
+          alt="">
+      </div>
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/network/ansible-notlari/" rel="permalink">Ansible Notları
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Ansible ile ilgili notlar
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><input type="search" id="search" aria-placeholder="Enter your search term..." class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+    <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://twitter.com/_gunhanoral" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/gunhanoral" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://www.linkedin.com/in/gunhanoral" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> LinkedIn</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2019 Gunhan Oral. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-93027736-1']);
+  
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "/network/tcpdump/";  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = "/network/tcpdump"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://gunhanoral.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>

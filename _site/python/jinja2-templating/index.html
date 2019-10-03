@@ -1,0 +1,1026 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.16.4 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Jinja2 Şablonları | Gunhan Oral</title>
+<meta name="description" content="Jinja2 ile çeşitli şablonlar oluşturup bunları network configleri için kullanacağız">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Gunhan Oral">
+<meta property="og:title" content="Jinja2 Şablonları">
+<meta property="og:url" content="/python/jinja2-templating/">
+
+
+  <meta property="og:description" content="Jinja2 ile çeşitli şablonlar oluşturup bunları network configleri için kullanacağız">
+
+
+
+  <meta property="og:image" content="/assets/images/gologo300x300.jpg">
+
+
+
+  <meta name="twitter:site" content="@_gunhanoral">
+  <meta name="twitter:title" content="Jinja2 Şablonları">
+  <meta name="twitter:description" content="Jinja2 ile çeşitli şablonlar oluşturup bunları network configleri için kullanacağız">
+  <meta name="twitter:url" content="/python/jinja2-templating/">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+      <meta name="twitter:image" content="/assets/images/gologo300x300.jpg">
+    
+  
+
+  
+
+
+
+  <meta property="article:published_time" content="2019-05-05T20:03:21+03:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="/python/jinja2-templating/">
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "url": null,
+      "logo": "/assets/images/gologo300x300.jpg"
+    }
+  </script>
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Gunhan Oral",
+      "url": null,
+      "sameAs": null
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Gunhan Oral Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE ]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">Gunhan Oral</a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/" >Home</a>
+            </li><li class="masthead__menu-item">
+              <a href="/year-archive/" >Posts</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/" >About</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+
+      
+        <img src="/assets/images/gunhan.jpg" alt="Gunhan Oral" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Gunhan Oral</h3>
+    
+    
+      <p class="author__bio" itemprop="description">
+        Network Engineer
+      </p>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Istanbul, Turkey</span>
+        </li>
+      
+
+      
+        
+          
+        
+          
+        
+          
+            <li><a href="https://twitter.com/_gunhanoral" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/gunhanoral" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+          
+        
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/gunhanoral" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> LinkedIn</a></li>
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:contact@gunhanoral.com">
+            <meta itemprop="email" content="contact@gunhanoral.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Jinja2 Şablonları">
+    <meta itemprop="description" content="Jinja2 ile çeşitli şablonlar oluşturup bunları network configleri için kullanacağız">
+    <meta itemprop="datePublished" content="May 05, 2019">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Jinja2 Şablonları
+</h1>
+          
+            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  5 minute read
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Table of Contents</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#giriş">Giriş</a></li>
+  <li><a href="#şablonlar">Şablonlar</a></li>
+  <li><a href="#değişkenler">Değişkenler</a></li>
+  <li><a href="#döngüler">Döngüler</a></li>
+  <li><a href="#şartlı-durumlar">Şartlı durumlar</a></li>
+  <li><a href="#sonuç">Sonuç</a></li>
+</ul>
+            </nav>
+          </aside>
+        
+        
+<h1 id="giriş">Giriş</h1>
+
+<p>Öncelikle bir özet ile başlayalım. Jinja2 çeşitli şablonlar üretmemize yarayan bir Python kütüphanesidir. Biz de bu şablonları network cihazlarının configlerini oluşturmada kullanacağız. Böylece;</p>
+<ul>
+  <li>büyük config dosyaları ile uğraşmaktansa sadece değişkenlerle oynayacağız,</li>
+  <li>cihazlar belli bir şablondan çıkmış olacağı için unutulmuş kısımlar olmayacak,</li>
+  <li>değişiklikleri cihazlara uygulamak kolaylaşacak.</li>
+</ul>
+
+<p>Bu amaçlarımıza Python ve Python’ın Jinja2 modülü yardımıyla ulaşacağız. Eğer sisteminizde Python yoksa <a href="https://www.python.org/downloads/">buradan indirebilir</a>, Jinja2 eksikse de <code class="highlighter-rouge">pip install jinja2</code> komutunu çalıştırarak yükleyebilirsiniz.</p>
+
+<h1 id="şablonlar">Şablonlar</h1>
+
+<p>Hızlıca başlayalım. Aşağıda cihazımıza loopback interface’i ayarlamak için bir template/şablon kullanıyoruz.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">jinja2</span> <span class="kn">import</span> <span class="n">Template</span>
+
+<span class="c1"># Şablonumuzu tanımlıyoruz
+</span><span class="n">config</span> <span class="o">=</span> <span class="s">"""interface loopback0
+exit"""</span>
+
+<span class="n">template</span> <span class="o">=</span> <span class="n">Template</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+
+<span class="c1"># Ekrana yazdıralım
+</span><span class="k">print</span><span class="p">(</span><span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">())</span>
+</code></pre></div></div>
+
+<p>Yukarıdaki kodu çalıştırırsanız ekrana “interface loopback0” ve “exit” yazdırdığımızı göreceksiniz. Çok başarılı bir uygulama olmadı, değil mi? Bunu gerçekten de kopyala + yapıştır ile her cihazımıza girebiliriz. O zaman değişkenlerden bahsedelim biraz.</p>
+
+<h1 id="değişkenler">Değişkenler</h1>
+
+<p>Bu kısımda şablonda belirlediğimiz alanlara istediklerimizi yazdıracağız. Örneğin:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">jinja2</span> <span class="kn">import</span> <span class="n">Template</span>
+
+<span class="c1"># Şablonumuzu tanımlıyoruz
+</span><span class="n">config</span> <span class="o">=</span> <span class="s">"""interface loopback0
+ip address {{ ip_address }} {{ netmask }}
+exit
+"""</span>
+<span class="n">template</span> <span class="o">=</span> <span class="n">Template</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+
+<span class="c1"># Şablonumuzun içini değişkenlerle doldurup ekrana yazdırıyoruz
+</span><span class="k">print</span><span class="p">(</span><span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">ip_address</span> <span class="o">=</span> <span class="s">'1.2.3.4'</span><span class="p">,</span> <span class="n">netmask</span> <span class="o">=</span> <span class="s">'255.255.255.0'</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>Aldığımız çıktı aşağıdaki gibi olacaktır:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>interface loopback0
+ip address 1.2.3.4 255.255.255.0
+exit
+</code></pre></div></div>
+
+<p>Farkettiyseniz çift tırnak (süslü) parantez ile belirttiğimiz noktaların içini doldurduk. Jinja2’de değişkenler bu şekilde tanımlanıyor;
+<code class="highlighter-rouge">{{ degisken_adi }}</code>. Daha sonra da değişkenlere verdiğimiz değerlerle bu alanların içini dolduruyoruz.</p>
+
+<p>Yukarıdakini biraz daha farklı bir şekilde yazalım:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">jinja2</span> <span class="kn">import</span> <span class="n">Template</span>
+
+<span class="c1"># Şablonumuzu tanımlıyoruz
+</span><span class="n">config</span> <span class="o">=</span> <span class="s">"""interface loopback0
+ip address {{ ip_address }} {{ netmask }}
+exit
+"""</span>
+<span class="n">template</span> <span class="o">=</span> <span class="n">Template</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+
+<span class="c1"># Değişkenlerimizi tanımlıyoruz
+</span><span class="n">degiskenler</span> <span class="o">=</span> <span class="p">{</span>
+<span class="s">'ip_address'</span><span class="p">:</span> <span class="s">'1.2.3.4'</span><span class="p">,</span>
+<span class="s">'netmask'</span><span class="p">:</span> <span class="s">'255.255.255.0'</span>
+<span class="p">}</span>
+
+<span class="c1"># Şablonumuzun içini değişkenlerle doldurup ekrana yazdıralım
+</span><span class="k">print</span><span class="p">(</span><span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="o">**</span><span class="n">degiskenler</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>Süper, her şey güzel gidiyor. Ancak sadece bir cihaz için bir interface tanımladık. Bu kadarla kısıtlı kalmayacak herhalde, değil mi?</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">jinja2</span> <span class="kn">import</span> <span class="n">Template</span>
+
+<span class="c1"># Şablonumuzu tanımlıyoruz
+</span><span class="n">config</span> <span class="o">=</span> <span class="s">"""! ### {{ device_name }} için config ###
+interface loopback0
+ip address {{ ip_address }} {{ netmask }}
+exit
+! ### {{ device_name }} için config ###
+
+"""</span>
+<span class="n">template</span> <span class="o">=</span> <span class="n">Template</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+
+<span class="c1"># Değişkenlerimizi tanımlıyoruz
+</span><span class="n">devices</span> <span class="o">=</span> <span class="p">[</span>
+<span class="p">{</span><span class="s">'device_name'</span><span class="p">:</span> <span class="s">'R1'</span><span class="p">,</span>
+<span class="s">'ip_address'</span><span class="p">:</span> <span class="s">'2.3.4.5'</span><span class="p">,</span>
+<span class="s">'netmask'</span><span class="p">:</span> <span class="s">'255.255.255.255'</span>
+<span class="p">},</span>
+<span class="p">{</span><span class="s">'device_name'</span><span class="p">:</span> <span class="s">'R2'</span><span class="p">,</span>
+<span class="s">'ip_address'</span><span class="p">:</span> <span class="s">'22.33.44.55'</span><span class="p">,</span>
+<span class="s">'netmask'</span><span class="p">:</span> <span class="s">'255.255.255.0'</span>
+<span class="p">}</span>
+<span class="p">]</span>
+<span class="c1"># Şablonumuzun içini her bir cihaz için değişkenlerle doldurup ekrana yazdıralım
+</span><span class="k">for</span> <span class="n">device</span> <span class="ow">in</span> <span class="n">devices</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="o">**</span><span class="n">device</span><span class="p">))</span>
+</code></pre></div></div>
+<p>Tebrikler, artık her cihaz için bir çıktı oluşturabiliyorsunuz.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>! ### R1 için config ###
+interface loopback0
+ip address 2.3.4.5 255.255.255.255
+exit
+! ### R1 için config ###
+
+! ### R2 için config ###
+interface loopback0
+ip address 22.33.44.55 255.255.255.0
+exit
+! ### R2 için config ###
+</code></pre></div></div>
+
+<h1 id="döngüler">Döngüler</h1>
+
+<p>Her cihaz sadece bir adet interface’e sahip olmayacak, değil mi?</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">jinja2</span> <span class="kn">import</span> <span class="n">Template</span>
+
+<span class="c1"># Şablonumuzu tanımlıyoruz
+</span><span class="n">config</span> <span class="o">=</span> <span class="s">"""! ### {{ device_name }} için config ###
+hostname {{ device_name }}
+{</span><span class="si">% </span><span class="s">for interface in interfaces </span><span class="si">%</span><span class="s">}
+interface {{ interface.name }}
+description {{ interface.description }}
+ip address {{ interface.ip_address }} {{ interface.netmask }}
+exit
+{</span><span class="si">% </span><span class="s">endfor </span><span class="si">%</span><span class="s">}
+! ### {{ device_name }} için config ###
+
+"""</span>
+<span class="n">template</span> <span class="o">=</span> <span class="n">Template</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+
+<span class="c1"># Değişkenlerimizi tanımlıyoruz
+</span><span class="n">devices</span> <span class="o">=</span> <span class="p">[</span>
+<span class="p">{</span><span class="s">'device_name'</span><span class="p">:</span> <span class="s">'R1'</span><span class="p">,</span>
+<span class="s">'interfaces'</span><span class="p">:</span> <span class="p">[</span>
+	<span class="p">{</span>
+	<span class="s">'name'</span><span class="p">:</span> <span class="s">'Loopback0'</span><span class="p">,</span>
+	<span class="s">'description'</span><span class="p">:</span> <span class="s">'IGP Loopback'</span><span class="p">,</span>
+	<span class="s">'ip_address'</span><span class="p">:</span> <span class="s">'10.1.1.1'</span><span class="p">,</span>
+	<span class="s">'netmask'</span><span class="p">:</span> <span class="s">'255.255.255.255'</span>
+	<span class="p">},</span>
+	<span class="p">{</span>
+	<span class="s">'name'</span><span class="p">:</span> <span class="s">'Loopback10'</span><span class="p">,</span>
+	<span class="s">'description'</span><span class="p">:</span> <span class="s">'TEST LOOPBACK'</span><span class="p">,</span>
+	<span class="s">'ip_address'</span><span class="p">:</span> <span class="s">'10.10.10.0'</span><span class="p">,</span>
+	<span class="s">'netmask'</span><span class="p">:</span> <span class="s">'255.255.255.0'</span>
+	<span class="p">}]</span>
+<span class="p">},</span>
+<span class="p">{</span><span class="s">'device_name'</span><span class="p">:</span> <span class="s">'R2'</span><span class="p">,</span>
+<span class="s">'interfaces'</span><span class="p">:</span> <span class="p">[</span>
+	<span class="p">{</span>
+	<span class="s">'name'</span><span class="p">:</span> <span class="s">'Loopback0'</span><span class="p">,</span>
+	<span class="s">'description'</span><span class="p">:</span> <span class="s">'IGP Loopback'</span><span class="p">,</span>
+	<span class="s">'ip_address'</span><span class="p">:</span> <span class="s">'10.2.2.2'</span><span class="p">,</span>
+	<span class="s">'netmask'</span><span class="p">:</span> <span class="s">'255.255.255.255'</span>
+	<span class="p">}]</span>
+<span class="p">},</span>
+<span class="p">{</span><span class="s">'device_name'</span><span class="p">:</span> <span class="s">'R3'</span><span class="p">}</span>
+<span class="p">]</span>
+<span class="c1"># Şablonumuzun içini her bir cihaz için değişkenlerle doldurup ekrana yazdıralım
+</span><span class="k">for</span> <span class="n">device</span> <span class="ow">in</span> <span class="n">devices</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="o">**</span><span class="n">device</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>Değişken yapısını değiştirdim. Artık her bir cihazın altında “interfaces” isimli birer list daha var ve bu list’ler interface değişkenlerinin olduğu dictionarylerden oluşuyor.</p>
+
+<p><code class="highlighter-rouge">{% for interface in interfaces %}</code> ve <code class="highlighter-rouge">{% endfor %}</code> arasındaki kısım değişkenlerimizdeki her bir interface için derlenecek. R1 cihazı 2 interface’e sahip olduğu için bu iki interface’in configleri derlenip yazdırıldı, R2’de 1 interface vardı, R3’te ise hiç interface olmadığı için ekrana interface ile ilgili hiç bir şey yazdırılmadı:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>! ### R1 için config ###
+hostname R1
+
+interface Loopback0
+description IGP Loopback
+ip address 10.1.1.1 255.255.255.255
+exit
+
+interface Loopback10
+description TEST LOOPBACK
+ip address 10.10.10.0 255.255.255.0
+exit
+
+! ### R1 için config ###
+
+! ### R2 için config ###
+hostname R2
+
+interface Loopback0
+description IGP Loopback
+ip address 10.2.2.2 255.255.255.255
+exit
+
+! ### R2 için config ###
+
+! ### R3 için config ###
+hostname R3
+
+! ### R3 için config ###
+</code></pre></div></div>
+
+<h1 id="şartlı-durumlar">Şartlı durumlar</h1>
+
+<p>Son olarak şartlı durumları inceleyelim. Her interface bir description’a sahip olmayabilir. Ya da bazı interface’ler ospf’e dahil edilirken bazıları edilmeyecektir. Template’imizi bu durumlara göre uyarlayalım. If, else ve endif anahtarlarına dikkat edin.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">jinja2</span> <span class="kn">import</span> <span class="n">Template</span>
+
+<span class="c1"># Şablonumuzu tanımlıyoruz
+</span><span class="n">config</span> <span class="o">=</span> <span class="s">"""! ### {{ device_name }} için config ###
+hostname {{ device_name }}
+{</span><span class="si">% </span><span class="s">for interface in interfaces </span><span class="si">%</span><span class="s">}
+interface {{ interface.name }}
+{</span><span class="si">% </span><span class="s">if interface.description </span><span class="si">%</span><span class="s">}description {{ interface.description }}{</span><span class="si">% </span><span class="s">else </span><span class="si">%</span><span class="s">}description ### NO DESC ###{</span><span class="si">% </span><span class="s">endif </span><span class="si">%</span><span class="s">}
+{</span><span class="si">% </span><span class="s">if interface.ospf </span><span class="si">%</span><span class="s">}ip ospf 1 area 0{</span><span class="si">% </span><span class="s">endif </span><span class="si">%</span><span class="s">}
+ip address {{ interface.ip_address }} {{ interface.netmask }}
+exit
+{</span><span class="si">% </span><span class="s">endfor </span><span class="si">%</span><span class="s">}
+! ### {{ device_name }} için config ###
+
+"""</span>
+<span class="n">template</span> <span class="o">=</span> <span class="n">Template</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+
+<span class="c1"># Değişkenlerimizi tanımlıyoruz
+</span><span class="n">devices</span> <span class="o">=</span> <span class="p">[</span>
+<span class="p">{</span><span class="s">'device_name'</span><span class="p">:</span> <span class="s">'R1'</span><span class="p">,</span>
+<span class="s">'interfaces'</span><span class="p">:</span> <span class="p">[</span>
+	<span class="p">{</span>
+	<span class="s">'name'</span><span class="p">:</span> <span class="s">'Loopback0'</span><span class="p">,</span>
+	<span class="s">'description'</span><span class="p">:</span> <span class="s">'IGP Loopback'</span><span class="p">,</span>
+	<span class="s">'ip_address'</span><span class="p">:</span> <span class="s">'10.1.1.1'</span><span class="p">,</span>
+	<span class="s">'netmask'</span><span class="p">:</span> <span class="s">'255.255.255.255'</span><span class="p">,</span>
+	<span class="s">'ospf'</span><span class="p">:</span> <span class="bp">True</span>
+	<span class="p">},</span>
+	<span class="p">{</span>
+	<span class="s">'name'</span><span class="p">:</span> <span class="s">'Loopback10'</span><span class="p">,</span>
+	<span class="s">'description'</span><span class="p">:</span> <span class="s">'TEST LOOPBACK'</span><span class="p">,</span>
+	<span class="s">'ip_address'</span><span class="p">:</span> <span class="s">'10.10.10.0'</span><span class="p">,</span>
+	<span class="s">'netmask'</span><span class="p">:</span> <span class="s">'255.255.255.0'</span>
+	<span class="p">}]</span>
+<span class="p">},</span>
+<span class="p">{</span><span class="s">'device_name'</span><span class="p">:</span> <span class="s">'R2'</span><span class="p">,</span>
+<span class="s">'interfaces'</span><span class="p">:</span> <span class="p">[</span>
+	<span class="p">{</span>
+	<span class="s">'name'</span><span class="p">:</span> <span class="s">'Loopback0'</span><span class="p">,</span>
+	<span class="s">'description'</span><span class="p">:</span> <span class="s">'IGP Loopback'</span><span class="p">,</span>
+	<span class="s">'ip_address'</span><span class="p">:</span> <span class="s">'10.2.2.2'</span><span class="p">,</span>
+	<span class="s">'netmask'</span><span class="p">:</span> <span class="s">'255.255.255.255'</span><span class="p">,</span>
+	<span class="s">'ospf'</span><span class="p">:</span> <span class="bp">True</span>
+	<span class="p">}]</span>
+<span class="p">},</span>
+<span class="p">{</span><span class="s">'device_name'</span><span class="p">:</span> <span class="s">'R3'</span><span class="p">,</span>
+<span class="s">'interfaces'</span><span class="p">:</span> <span class="p">[</span>
+	<span class="p">{</span>
+	<span class="s">'name'</span><span class="p">:</span> <span class="s">'Loopback0'</span><span class="p">,</span>
+	<span class="s">'ip_address'</span><span class="p">:</span> <span class="s">'10.3.3.3'</span><span class="p">,</span>
+	<span class="s">'netmask'</span><span class="p">:</span> <span class="s">'255.255.255.255'</span><span class="p">,</span>
+	<span class="s">'ospf'</span><span class="p">:</span> <span class="bp">True</span>
+	<span class="p">}]</span>
+<span class="p">},</span>
+<span class="p">]</span>
+<span class="c1"># Şablonumuzun içini her bir cihaz için değişkenlerle doldurup ekrana yazdıralım
+</span><span class="k">for</span> <span class="n">device</span> <span class="ow">in</span> <span class="n">devices</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="o">**</span><span class="n">device</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>Aşağıdaki çıktıda görebileceğiniz üzere R1’in Loopback10 interface’inde ospf komutu yok, R3’ün Loopback0’ında description girmediğimiz için şablondaki description ile ilgili şartlı durumun “else” kısmı çalışmış ve description olarak “NO DESC” yazılmış.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>! ### R1 için config ###
+hostname R1
+
+interface Loopback0
+description IGP Loopback
+ip ospf 1 area 0
+ip address 10.1.1.1 255.255.255.255
+exit
+
+interface Loopback10
+description TEST LOOPBACK
+
+ip address 10.10.10.0 255.255.255.0
+exit
+
+! ### R1 için config ###
+
+! ### R2 için config ###
+hostname R2
+
+interface Loopback0
+description IGP Loopback
+ip ospf 1 area 0
+ip address 10.2.2.2 255.255.255.255
+exit
+
+! ### R2 için config ###
+
+! ### R3 için config ###
+hostname R3
+
+interface Loopback0
+description ### NO DESC ###
+ip ospf 1 area 0
+ip address 10.3.3.3 255.255.255.255
+exit
+
+! ### R3 için config ###
+</code></pre></div></div>
+
+<h1 id="sonuç">Sonuç</h1>
+
+<p>Jinja2 template’lerini cihazlarınızı belli bir standarta oturtmak için kullanabilirsiniz. Ayrıca cihaz config’i oluşturmak için büyük kolaylık sağladığı gibi hataları da azaltacaktır (Aaa ben o cihaza snmp config’i girmemiş miyim? tüh &gt;.&gt; ). Bunların yanısıra eğer Ansible veya benzeri bir configuration management tool’u kullanıyorsanız template’i değiştirmeniz ve bunu cihazlarınız üzerinde kullanmanız tüm network config’ini değiştirmenize olanak tanıyacaktır. Büyük kolaylık sağladığı gibi büyük hatalara da yol açabilir, dikkatli olun.</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#jinja2" class="page__taxonomy-item" rel="tag">Jinja2</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#python" class="page__taxonomy-item" rel="tag">Python</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#python" class="page__taxonomy-item" rel="tag">python</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-05-05T20:03:21+03:00">May 05, 2019</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?via=_gunhanoral&text=Jinja2+%C5%9Eablonlar%C4%B1%20%2Fpython%2Fjinja2-templating%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=%2Fpython%2Fjinja2-templating%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=%2Fpython%2Fjinja2-templating%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/network/ansible-dynamic-inventory/" class="pagination--pager" title="Ansible dinamik envanter
+">Previous</a>
+    
+    
+      <a href="/python/netmiko/" class="pagination--pager" title="Netmiko
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+      <div class="page__comments">
+  
+  
+      <h4 class="page__comments-title">Leave a comment</h4>
+      <section id="disqus_thread"></section>
+    
+</div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src=
+          
+            "/assets/images/gologo300x300.jpg"
+          
+          alt="">
+      </div>
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/python/netmiko/" rel="permalink">Netmiko
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Kirk Byers’ın Python için yazdığı netmiko modülü hakkında kısa bir yazı
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src=
+          
+            "/assets/images/gologo300x300.jpg"
+          
+          alt="">
+      </div>
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/network/ansible-dynamic-inventory/" rel="permalink">Ansible dinamik envanter
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  2 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Ansible’da özelleştirilmiş dinamik envanter nasıl hazırlanır?
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src=
+          
+            "/assets/images/gologo300x300.jpg"
+          
+          alt="">
+      </div>
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/network/ansible-notlari/" rel="permalink">Ansible Notları
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Ansible ile ilgili notlar
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src=
+          
+            "/assets/images/gologo300x300.jpg"
+          
+          alt="">
+      </div>
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/network/gns_vm_kurulumu/" rel="permalink">GNS3 VM Kurulumu
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">GNS3 VM kurarken dikkat edilecek bazı hususlar.
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><input type="search" id="search" aria-placeholder="Enter your search term..." class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+    <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://twitter.com/_gunhanoral" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/gunhanoral" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://www.linkedin.com/in/gunhanoral" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> LinkedIn</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2019 Gunhan Oral. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-93027736-1']);
+  
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "/python/jinja2-templating/";  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = "/python/jinja2-templating"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://gunhanoral.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>
