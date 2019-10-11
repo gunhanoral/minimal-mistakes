@@ -19,7 +19,7 @@ feature_row:
   - image_path: assets/images/neteng_sm.jpg
     alt: "Network Engineering"
     title: "Network Engineering"
-    excerpt: "Posts about network devices, protocols, hardwares, best practices and examples."
+    excerpt: "Posts about routers, switches, firewalls, protocols, best practices and examples."
   - image_path: /assets/images/netauto_sm.jpg
     alt: "Network Automation"
     title: "Network Automation"
@@ -34,10 +34,6 @@ feature_row:
 
 {% include feature_row %}
 
-<h2 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h2>
-
-{% for post in paginator.posts %}{% include archive-single.html type="grid" %}{% endfor %}
-
-{% include paginator.html %}
-
-<a href="#page-title" class="back-to-top">{{ site.data.ui-text[site.locale].back_to_top | default: 'Back to Top' }} &uarr;</a>
+{% include archive-single.html type="grid" %}
+{% include archive-single.html type="grid" %}
+{% include archive-single.html type="grid" %}
