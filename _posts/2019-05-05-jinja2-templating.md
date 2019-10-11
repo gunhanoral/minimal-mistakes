@@ -8,6 +8,8 @@ tags:
 - Jinja2
 image: no
 published: true
+header:
+  teaser: /assets/images/jinja.jpg
 ---
 {% raw %}
 # Giriş

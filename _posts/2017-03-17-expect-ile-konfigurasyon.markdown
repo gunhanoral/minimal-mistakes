@@ -2,14 +2,12 @@
 title:  "tcl expect ile huawei konfigürasyonu"
 excerpt: "Özellikle network cihazlarından çeşitli komut çıktılarını almak veya konfigürasyon değişikliği yapmak gerektiğinde expect akla ilk gelen seçeneklerden birisi. Bu yazıda Huawei örneğinden yola çıkarak expect'i tanıttım."
 date:   2017-03-17 12:43:06
-categories: network
+categories: netauto
 tags:
   - tcl
   - expect
   - huawei
   - config
-image: /assets/article_images/2017-03-17-expect-ile-konfigurasyon/cables_l.jpg
-image2: /assets/article_images/2017-03-17-expect-ile-konfigurasyon/cables_m.jpg
 published: true
 ---
 Özellikle network cihazlarından çeşitli komut çıktılarını almak veya konfigürasyon değişikliği yapmak gerektiğinde expect akla ilk gelen seçeneklerden birisi. Cihazdan verilen yanıtlara göre çeşitli alt dallara inilebilmesi; yani "interface down ise şöyle yap, yok interface up fakat üzerinden trafik geçmemişse böyle yap" diyebilmenizi sağlayan bir yapıda olması expect'i uzunca bir süre otomatik konfigürasyon için biçilmiş kaftan kıldı. Aşağıda çok noktalı bir müşteriye ait Huawei cihazlarda snmp konfigürasyonu yapmak için kullandığım kodu bulabilirsiniz.

@@ -11,7 +11,7 @@ tags:
   - asyncio
   - featured
 header:
-  overlay_image: /assets/images/2017-07-04-async-port-check.png
+  image: /assets/images/2017-07-04-async-port-check.png
   overlay_filter: 0.2
 toc: false
 published: true

@@ -2,11 +2,12 @@
 title:  "Ansible Notları"
 excerpt: "Ansible ile ilgili notlar"
 date:   2017-09-16 17:42:38
-categories: network
+categories: netauto
 tags: ['network', 'python', 'ansible', 'network automation', 'network orchestration', 'featured']
-header:
-  overlay_image: /assets/images/2017-09-16-ansible-notlari_ansible.jpg
 published: true
+header:
+  teaser: /assets/images/ansible_teaser.gif
+  image: /assets/images/2017-09-16-ansible-notlari_ansible.jpg
 ---
 # Ansible Nedir?
 

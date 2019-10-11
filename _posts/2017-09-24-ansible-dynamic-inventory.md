@@ -2,11 +2,13 @@
 title:  "Ansible dinamik envanter"
 excerpt: "Ansible'da özelleştirilmiş dinamik envanter nasıl hazırlanır?"
 date:   2017-09-24 15:13:28
-categories: network
+categories: netauto
 tags: ['network', 'python', 'ansible', 'network automation', 'network orchestration', 'featured']
-image: /assets/article_images/2017-09-16-ansible-notlari/Ansible_logo_wordmark.jpg
 published: true
 toc: false
+header:
+  teaser: /assets/images/ansible_teaser.gif
+  image: /assets/images/2017-09-16-ansible-notlari_ansible.jpg
 ---
 
 ## Dinamik envanter?
