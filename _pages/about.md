@@ -14,7 +14,7 @@ toc_sticky: true
 author_profile: true
 about_data:
   skills:
-    neteng: ["bgp", "mpls", "ospf", "is-is", "tcp/ip", "ipv6", "atom", "l2vpn", "l3vpn", "netflow", "ipsec", "dns", "sip", "voip", "cisco", "huawei", "zte", "fortigate", "pfsense", "arbor", "a10", "ubiquiti", "arcsight", "frr", "routers", "switches", "firewalls", "nat", "cgnat"]
+    neteng: ["bgp", "mpls", "ospf", "is-is", "tcp/ip", "ipv6", "atom", "l2vpn", "l3vpn", "netflow", "ipsec", "dns", "sip", "voip", "cisco", "nokia", "huawei", "zte", "fortigate", "pfsense", "arbor", "a10", "ubiquiti", "arcsight", "frr", "routers", "switches", "firewalls", "nat", "cgnat"]
     netauto: ["linux", "python", "ansible", "bash", "nornir", "git", "docker", "sql", "nosql", "neo4j", "influxdb", "grafana", "clickhousedb", "rest", "nfsen", "sipp", "yaml", "xml", "json", "syslog", "snmp", "gobgp", "exabgp", "scapy"]
 ---
 
@@ -56,6 +56,11 @@ Network engineer, automation enthusiast, Pythonista
 </p>
 
 # Experience
+
+## Nokia
+### Network Engineer
+_Sep 2019 – now_
+
 ## TurkNet İletişim Hizmetleri
 ### Network Engineer
 _Feb 2017 – Sep 2019_
@@ -90,7 +95,7 @@ Responsibilities:
 Had experience on:
 - Mostly layer 7 protocols.
 - Network automation
-- Protocols such as IP, BGP, OSPF, VPLS, MPLS, VPN, L2VPN etc. 
+- Protocols such as IP, BGP, OSPF, VPLS, MPLS, VPN, L2VPN etc.
 - Modems, switches, routers, voice gateways and firewalls from various vendors such as Cisco, Huawei, Juniper, Fortigate, Checkpoint, Gendband, Nortel, Audiocodes, Xpeech
 - Softwares such as Cacti, Netmon, Nagios, Syslog, Wireshark, Solarwinds, SIPp
 - Scripting with Bash, Python, Tcl, Expect
@@ -106,11 +111,10 @@ Responsibilities:
 - Installation, management and troubleshooting on our Access network devices.
 
 Had experience on:
-- Protocols such as IP, BGP, OSPF, VRFs, MPLS, LAN, WAN, HTTP, SIP, MGCP, SS7; ordered from most used to less used. 
+- Protocols such as IP, BGP, OSPF, VRFs, MPLS, LAN, WAN, HTTP, SIP, MGCP, SS7; ordered from most used to less used.
 - Modems, switches, routers, voice gateways and firewalls from various vendors such as Cisco, Huawei, Juniper, Fortigate, Checkpoint, Genband, Nortel, Audiocodes, Xpeech
 - Softwares such as Cacti, Netmon, Nagios, Syslog, Wireshark, Solarwinds, SIPp
 - Scripting with Bash, Python, Tcl, Expect
 
 ### Business Services Support Engineer
 _Aug 2013 – Sep 2014_
-

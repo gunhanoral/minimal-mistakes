@@ -2,7 +2,7 @@ version: '3'
 services:
   website:
     image: 'jekyll/builder:3.8'
-    command: bash -c "bundle install && jekyll serve"
+    command: bash -c "bundle install && jekyll serve -l --force_polling --watch"
     ports:
       - '80:4000'
     volumes:

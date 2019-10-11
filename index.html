@@ -12,33 +12,31 @@ header:
     - label: "Learn More"
       url: "/about/"
 excerpt: Network engineer
-intro: 
+intro:
   - excerpt: Network engineering, network automation, Python projects, articles and guides.
 
 feature_row:
   - image_path: assets/images/neteng_sm.jpg
     alt: "Network Engineering"
     title: "Network Engineering"
-    # excerpt: "Network planning, design and implementation. LAN - WAN, firewalls, routers, switches, hotspots, radio-links, DDoS mitigation & more. Contact for further information."
+    excerpt: "Posts about network devices, protocols, hardwares, best practices and examples."
   - image_path: /assets/images/netauto_sm.jpg
     alt: "Network Automation"
     title: "Network Automation"
-    # excerpt: "Network automation best practices, industry standarts, courses including labs with focus on Python, Ansible and other automation solutions. Contact for further information."
+    excerpt: "Network automation best practices, labs with focus on Python, Ansible and other automation solutions."
   - image_path: /assets/images/python_sm.jpg
     title: "Python Programming"
     alt: "Python Programming"
-    # excerpt: "Python programming courses, best practices and custom made solutions. Contact for further information."
+    excerpt: "Python programming tips and ideas, best practices and custom made solutions."
 ---
 
 {% include feature_row id="intro" type="center" %}
 
 {% include feature_row %}
 
-<h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h3>
+<h2 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h2>
 
-{% for post in paginator.posts %}
-  {% include archive-single.html type="center" %} 
-{% endfor %} 
+{% for post in paginator.posts %}{% include archive-single.html type="grid" %}{% endfor %}
 
 {% include paginator.html %}
 
